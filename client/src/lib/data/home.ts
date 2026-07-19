@@ -144,7 +144,7 @@ export const trainers: Trainer[] = [
     role: "Head Strength Coach",
     bio: "15 years of experience training athletes and everyday fitness enthusiasts.",
     imageUrl:
-      "https://images.unsplash.com/photo-1594381898411-8465977a898d?w=400&q=80",
+      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
     specialties: ["Strength", "Powerlifting", "Mobility"],
   },
   {
@@ -162,7 +162,7 @@ export const trainers: Trainer[] = [
     role: "Nutrition & Wellness",
     bio: "Registered dietitian helping members fuel their bodies for optimal performance.",
     imageUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b247d?w=400&q=80",
+      "https://images.unsplash.com/photo-1566753323558-f4e0952af115?auto=format&fit=crop&w=800&q=80",
     specialties: ["Nutrition", "Meal Plans", "Recovery"],
   },
   {
@@ -249,10 +249,10 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const navLinks = [
-  { label: "Programs", href: "#programs" },
-  { label: "Categories", href: "#categories" },
-  { label: "Trainers", href: "#trainers" },
-  { label: "Blog", href: "#blog" },
+  { label: "Programs", href: "/programs" },
+  { label: "Categories", href: "/categories" }, 
+  { label: "Trainers", href: "/trainers" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export const footerLinks = {
