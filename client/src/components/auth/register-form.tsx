@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-
+import { authClient } from "@/lib/auth-client";
 import AuthInput from "./auth-input";
 import PasswordInput from "./password-input";
 import AuthCheckbox from "./auth-checkbox";
@@ -15,10 +15,40 @@ export default function RegisterForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [loading, setLoading] = useState(false);
 const [image, setImage] = useState("");
+
+const handleRegister = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
+
+  setLoading(true);
+
+  try {
+    const { data, error } = await authClient.signUp.email({
+      email,
+      password,
+      name,
+      image,
+    });
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    console.log(data);
+
+     //router.push("/");
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setLoading(false);
+  }
+};
   return (
-    <form className="space-y-6">
+    <form onSubmit={handleRegister} className="space-y-6">
       <AuthInput
         label="Full Name"
         type="text"
@@ -78,9 +108,9 @@ const [image, setImage] = useState("");
         </p>
       </div>
 
-      <AuthButton>
-        Create Account
-      </AuthButton>
+      <AuthButton loading={loading}>
+  Create Account
+</AuthButton>
 
       <Divider />
 
