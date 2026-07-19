@@ -217,7 +217,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Learn how gradually increasing training stress leads to consistent strength gains and muscle growth.",
     imageUrl:
-      "https://images.unsplash.com/photo-1581009146145-b5ef050c1493?w=600&q=80",
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
     category: "Training",
     readTime: "5 min read",
     publishedAt: "Jul 10, 2026",

@@ -8,11 +8,12 @@ import { Container } from "@/components/ui/container";
 import { navLinks } from "@/lib/data/home";
 import { cn } from "@/lib/utils/cn";
 import { authClient } from "@/lib/auth-client";
-
+import { usePathname } from "next/navigation";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const pathname = usePathname();
 
 const { data: session, isPending } = authClient.useSession();
 
@@ -28,13 +29,13 @@ const user = session?.user;
   
   return (
     <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-[999] overflow-visible transition-all duration-300",
-        isScrolled
-          ? "bg-white/95 shadow-md backdrop-blur-md"
-          : "bg-transparent"
-      )}
-    >
+  className={cn(
+    "fixed inset-x-0 top-0 z-[999] overflow-visible transition-all duration-300",
+    isScrolled
+      ? "bg-white/95 shadow-md backdrop-blur-md"
+      : "bg-transparent"
+  )}
+>
       <Container>
 <nav className="relative flex h-16 items-center justify-between overflow-visible md:h-20">
           <Link
@@ -68,9 +69,16 @@ const user = session?.user;
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors duration-200 hover:text-primary",
-                  isScrolled ? "text-foreground" : "text-white/90 hover:text-white"
-                )}
+  "text-sm font-medium transition-colors duration-200",
+
+  pathname === link.href
+    ? isScrolled
+      ? "text-primary"
+      : "text-emerald-400"
+    : isScrolled
+      ? "text-foreground hover:text-primary"
+      : "text-white/90 hover:text-white"
+)}
               >
                 {link.label}
               </Link>
@@ -195,7 +203,13 @@ onClick={async () => {
       <Link
         key={link.href}
         href={link.href}
-        className="rounded-lg px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-gray-50 hover:text-primary"
+        className={cn(
+  "rounded-lg px-4 py-3 text-base font-medium transition-colors",
+
+  pathname === link.href
+    ? "bg-primary text-white"
+    : "text-foreground hover:bg-gray-50 hover:text-primary"
+)}
         onClick={() => setIsMobileOpen(false)}
       >
         {link.label}
