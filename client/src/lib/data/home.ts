@@ -250,7 +250,7 @@ export const blogPosts: BlogPost[] = [
 
 export const navLinks = [
   { label: "Programs", href: "/programs" },
-  { label: "Categories", href: "/categories" }, 
+  { label: "Categories", href: "/category" }, 
   { label: "Trainers", href: "/trainers" },
   { label: "Blog", href: "/blog" },
 ];
