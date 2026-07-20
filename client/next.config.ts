@@ -8,15 +8,21 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
       },
       {
+        protocol: "https",
+        hostname: "randomuser.me",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+      },
+      {
         protocol: "http",
         hostname: "**",
       },
-      {
-      protocol: "https",
-      hostname: "randomuser.me",
-    },
-
-
     ],
   },
 };
