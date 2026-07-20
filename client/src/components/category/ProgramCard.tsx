@@ -1,15 +1,6 @@
 import Image from "next/image";
+import { Program } from "@/types/program";
 
-interface Program {
-  _id: string;
-  title: string;
-  shortDescription: string;
-  image: string;
-  category: string;
-  trainer: string;
-  level: string;
-  price: string;
-}
 
 export default function ProgramCard({
   program,
